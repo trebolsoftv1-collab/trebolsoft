@@ -62,4 +62,3 @@ npx expo start
 
 ## Licencia
 Propietario: TrebolSoft.
-
