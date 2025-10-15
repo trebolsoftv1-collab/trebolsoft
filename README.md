@@ -62,3 +62,11 @@ npx expo start
 
 ## Licencia
 Propietario: TrebolSoft.
+
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+def read_root():
+    with open("bienvenida_trebolsoft.html", "r", encoding="utf-8") as f:
+        return f.read()
+
