@@ -1,5 +1,5 @@
 
-# TrebolSoft — Cobro Diario (MVP)
+# TrebolSoft (MVP)
 
 Stack:
 - Backend: FastAPI (Python)
