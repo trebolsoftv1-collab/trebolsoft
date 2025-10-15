@@ -22,11 +22,11 @@ Copia `.env.example` a `.env` dentro de `api/` y `app/` ajustando valores.
 ENV=dev
 API_V1_STR=/api/v1
 DATABASE_URL=postgresql+psycopg://USER:PASSWORD@HOST:PORT/DB
-SUPABASE_PROJECT_URL=https://<project>.supabase.co
-SUPABASE_JWKS_URL=https://<project>.supabase.co/auth/v1/keys
-SUPABASE_SERVICE_ROLE_KEY=CHANGE_ME
-CORS_ORIGINS=http://localhost:8081,https://app.tu-dominio.com
-MAPBOX_TOKEN=CHANGE_ME
+SUPABASE_PROJECT_URL=https://mogxabnsjjcqapqcdtxp.supabase.co
+SUPABASE_JWKS_URL=https://mogxabnsjjcqapqcdtxp.supabase.co/auth/v1/keys
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vZ3hhYm5zampjcWFwY3FkdHhwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MDUzNjAwOCwiZXhwIjoyMDc2MTEyMDA4fQ.UaA4jhGbqhURDXBWhyRH2wgs-p3ItsbvNkmrVMdzS6w
+CORS_ORIGINS=http://localhost:8081,https://app.trebolsoft.com
+MAPBOX_TOKEN=pk.eyJ1IjoidHJlYm9sc29mdCIsImEiOiJjbWdzNG50Y2QwYnMzMmxvam84dXB6ZTdoIn0.voaAD-TqnriYg0vyL768og
 ```
 
 ### APP (`app/.env`)
