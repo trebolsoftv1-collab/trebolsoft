@@ -1,0 +1,23 @@
+
+services:
+  - type: web
+    name: trebolsoft-api
+    env: python
+    plan: free
+    buildCommand: pip install -r api/requirements.txt && alembic -c api/alembic.ini upgrade head
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
+    rootDir: api
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: API_V1_STR
+        value: /api/v1
+      - key: SUPABASE_PROJECT_URL
+        sync: false
+      - key: SUPABASE_JWKS_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        value: https://app.tu-dominio.com

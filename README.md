@@ -1,0 +1,64 @@
+
+# TrebolSoft — Cobro Diario (MVP)
+
+Stack:
+- Backend: FastAPI (Python)
+- DB/Auth/Storage: Supabase (PostgreSQL)
+- Hosting API: Render
+- App móvil: React Native (Expo, TypeScript)
+- Mapas: Mapbox
+
+## Requisitos
+- Python 3.11+
+- Node.js 18+
+- Docker (opcional para dev)
+- Cuenta en Supabase y Render
+
+## Variables de entorno
+Copia `.env.example` a `.env` dentro de `api/` y `app/` ajustando valores.
+
+### API (`api/.env`)
+```env
+ENV=dev
+API_V1_STR=/api/v1
+DATABASE_URL=postgresql+psycopg://USER:PASSWORD@HOST:PORT/DB
+SUPABASE_PROJECT_URL=https://<project>.supabase.co
+SUPABASE_JWKS_URL=https://<project>.supabase.co/auth/v1/keys
+SUPABASE_SERVICE_ROLE_KEY=CHANGE_ME
+CORS_ORIGINS=http://localhost:8081,https://app.tu-dominio.com
+MAPBOX_TOKEN=CHANGE_ME
+```
+
+### APP (`app/.env`)
+```env
+EXPO_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
+EXPO_PUBLIC_SUPABASE_URL=https://<project>.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=CHANGE_ME
+EXPO_PUBLIC_MAPBOX_TOKEN=CHANGE_ME
+```
+
+## Desarrollo local (opción Docker)
+```bash
+docker compose up --build
+```
+- API: http://localhost:8000
+- Swagger: http://localhost:8000/docs
+
+## Desarrollo móvil
+```bash
+cd app
+npm i
+npx expo start
+```
+
+## Despliegue a Render (API)
+- Usa `infra/render/render.yaml` o crea un Web Service y configura `Build Command` y `Start Command`:
+  - Build: `pip install -r api/requirements.txt && alembic -c api/alembic.ini upgrade head`
+  - Start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+
+## Supabase
+- Crea proyecto, habilita Storage y Auth.
+- Ejecuta `infra/supabase/init.sql` en el SQL editor para crear tablas iniciales.
+
+## Licencia
+Propietario: TrebolSoft.
