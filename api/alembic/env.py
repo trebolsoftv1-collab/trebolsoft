@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app')))
 from __future__ import with_statement
 from alembic import context
 from sqlalchemy import engine_from_config, pool
@@ -14,8 +14,8 @@ if config.config_file_name is not None:
 if os.getenv("DATABASE_URL"):
     config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))
 
-from app.models.base import Base  # noqa
-from app.models import models  # noqa: F401 import to register models
+from models.base import Base  # noqa
+from models import models     # noqa: F401
 
 target_metadata = Base.metadata
 
