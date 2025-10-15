@@ -9,7 +9,12 @@ app.include_router(health_router)
 def root():
     return {"name": "TrebolSoft API", "status": "ok"}
 
+from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from app.routers.health import router as health_router
+
+app = FastAPI(title="TrebolSoft API")
+app.include_router(health_router)
 
 @app.get("/", response_class=HTMLResponse)
 def read_root():
