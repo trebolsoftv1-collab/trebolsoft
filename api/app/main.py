@@ -8,7 +8,7 @@ app.include_router(health_router)
 
 @app.get("/", response_class=HTMLResponse)
 def read_root():
-    with open("bienvenida_trebolsoft.html", "r", encoding="utf-8") as f:
+    with open("app/bienvenida_trebolsoft.html", "r", encoding="utf-8") as f:
         return f.read()
 
 # Solo necesario si ejecutas directamente este archivo
